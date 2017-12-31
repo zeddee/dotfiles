@@ -1,0 +1,4 @@
+# This is an alias file
+# Run `ln -s $(pwd)/<thisfile> ~/.aliases
+
+# Append aliases as `alias = <cmd>`
