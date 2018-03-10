@@ -1,0 +1,3 @@
+To allow the `keybase://` protocol for the `git submodule add` command, perform the following:
+
+git config --global --add protocol.keybase.allow always
