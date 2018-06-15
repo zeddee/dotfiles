@@ -1,10 +1,11 @@
 # This is an alias file
 # Run `ln -s $(pwd)/<thisfile> ~/.aliases
 
-# Append aliases as `alias = <cmd>`
+# Append aliases as `alias=<cmd>`
 alias mktmp="cd $(mktemp -d)"
 alias adoc=asciidoctor
 alias adocpdf=asciidoctor-pdf
+alias py=python3
 
 # For Headless Chrome(s). Point to chrome binaries in /Applications folder
 # Run with "<binary> --headless --disable-gpu --remote-debugging-port=9222 <url>"
