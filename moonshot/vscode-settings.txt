@@ -1,0 +1,19 @@
+{
+"editor.tabSize": 2,
+  "editor.renderWhitespace":"all",
+  "editor.insertSpaces":true,
+  "editor.wordWrap":"on",
+  "editor.detectIndentation":false,
+"window.zoomLevel": 0,
+  "sublimeTextKeymap.promptV3Features": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.snippetSuggestions": "top",
+  "editor.formatOnPaste": true,
+"editor.fontFamily": "IBM Plex Mono",
+  "python.linting.enabledWithoutWorkspace": false,
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.quickSuggestionsDelay": 0,
+  "files.insertFinalNewline": true,
+  "editor.fontSize": 13,
+  "workbench.colorTheme": "Visual Studio Light"
+}
