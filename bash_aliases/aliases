@@ -6,9 +6,16 @@ alias mktmp="cd $(mktemp -d)"
 alias adoc=asciidoctor
 alias adocpdf=asciidoctor-pdf
 alias py=python3
+alias yt="youtube-dl -f mp4"
 
 # For Headless Chrome(s). Point to chrome binaries in /Applications folder
 # Run with "<binary> --headless --disable-gpu --remote-debugging-port=9222 <url>"
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias chromecan="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
 #alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
+
+# === Sketch dev environment
+# Switch on plugin autoreload
+alias sketch_autoreload_on="defaults write ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript -bool YES && defaults read ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript"
+# Switch off plugin autoreload
+alias sketch_autoreload_off="defaults write ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript -bool NO && defaults read ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript"
