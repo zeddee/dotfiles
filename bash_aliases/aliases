@@ -8,6 +8,13 @@ alias adocpdf=asciidoctor-pdf
 alias py=python3
 alias yt="youtube-dl -f mp4"
 
+# Convenient way to output date to ISO 8601 format
+if [ "brew ls --versions coreutils" > /dev/null ]; then
+  alias dateiso="gdate --iso-8601=seconds"
+else
+  echo "Run 'brew install coreutils'"
+fi
+
 # For Headless Chrome(s). Point to chrome binaries in /Applications folder
 # Run with "<binary> --headless --disable-gpu --remote-debugging-port=9222 <url>"
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
