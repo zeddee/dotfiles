@@ -39,3 +39,6 @@ alias chromecan="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\
 alias sketch_autoreload_on="defaults write ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript -bool YES && defaults read ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript"
 # Switch off plugin autoreload
 alias sketch_autoreload_off="defaults write ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript -bool NO && defaults read ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript"
+
+# datenow prints ISO-8601 date time to stdout
+alias datenow="date +%Y-%m-%dT%H:%M:%S%z"
