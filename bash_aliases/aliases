@@ -46,7 +46,9 @@ alias datenow="date +%Y-%m-%dT%H:%M:%S%z"
 
 comparestr() {
   if [[ $# -ne 2 ]]; then
-    echo Requires 2 arguments
+    echo Compares 2 strings.
+    echo Usage: comparestr "first string" "second string"
+    return
   else
     if [[ "$1" == "$2" ]]; then
       echo strings are equal
@@ -61,6 +63,11 @@ comparestr() {
 }
 
 comparehash() {
+  if [[ $# -ne 2 ]]; then
+    echo Compares a file\'s sha256 hash to a given string
+    echo Usage: comparehash "filename" "hash_to_compare_to"
+    return
+  fi
   # check if 1st arg is file
   if [[ -f $1 ]]; then
     hash1=$(sha256sum "$1" | cut -f 1 -d ' ')
