@@ -12,7 +12,8 @@ alias yt="youtube-dl -f mp4"
 alias hl="hugo serve --logFile $(date +%Y-%m-%d-%H%M%S).log --log -D"
 
 # Quick python3 venv init
-alias pyinit="python3 -m venv env && source env/bin/activate && pip install --upgrade pip setuptools && pip install pylint autopep8 && echo 'env' >> .gitignore"
+# alias pyinit="python3 -m venv env && source env/bin/activate && pip install --upgrade pip setuptools && pip install pylint autopep8 && echo 'env' >> .gitignore"
+alias pyinit=pyinit_func
 
 # Convenient way to output date to ISO 8601 format
 if [ "brew ls --versions coreutils" > /dev/null ]; then
@@ -42,6 +43,53 @@ alias sketch_autoreload_off="defaults write ~/Library/Preferences/com.bohemianco
 
 # datenow prints ISO-8601 date time to stdout
 alias datenow="date +%Y-%m-%dT%H:%M:%S%z"
+
+alias datenowfriendly="date +%Y-%m-%dT%H%M%S"
+
+# takes two inputs and returns a boolean
+# $1: line (str) to find
+# $2: file to iterate through
+# greps $2 to find a string
+# grep -F (--fixed-strings) -x (--line-regexp; matches whole line) -q (--quiet)
+# NOTE: You can't actually return values with bash functions
+# only exit codes. Access the returned function with 'local funccall "arg"; echo $?'
+checkLineExists() {
+    findme=$1
+    filename=$2
+    if [[ $# -eq 0 ]]; then
+        echo Requires 2 args: "string to check for" "filename"
+        return 2 # fails 
+    else
+        if $(cat $2 | grep -Fxq "$1"); then
+            return 0 # string found
+        else
+            return 1 # string not found
+        fi
+    fi
+}
+
+pyinit_func() {
+    # check for python3 binary
+    if [ ! -x "$(command -v python3)" ]; then
+        echo python not found
+        return 2
+    fi
+
+    python3 -m venv env && source env/bin/activate && pip install --upgrade pip setuptools && pip install pylint autopep8 doc8
+    
+    checkLineExists "env" ".gitignore"
+    local exists=$?
+    if [ "$exists" -eq 0 ]; then
+        echo 'env' already exists in .gitignore
+        return 0 # exit if env exists in gitignore
+    elif [ "$exists" -eq 1 ]; then
+        echo Appending 'env' to .gitignore
+        echo 'env' >> .gitignore
+    else
+        echo Warning: Could not append to .gitignore. Check if file exists.
+        return 1
+    fi
+}
 
 
 comparestr() {
