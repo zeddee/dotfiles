@@ -7,6 +7,7 @@ alias adoc=asciidoctor
 alias adocpdf=asciidoctor-pdf
 alias py=python3
 alias yt="youtube-dl -f mp4"
+alias uh="unset HISTFILE"
 
 # Start a hugo server with logs
 alias hl="hugo serve --logFile $(date +%Y-%m-%d-%H%M%S).log --log -D"
@@ -121,6 +122,18 @@ comparehash() {
     hash1=$(sha256sum "$1" | cut -f 1 -d ' ')
     echo hash1 is "$hash1"
     comparestr "$hash1" "$2"
+  else
+    echo First argument must be file
+  fi
+}
+
+runnotebook() {
+  if ! command -v jupyter; then
+    echo Requires jupyter. Install with pip.
+  fi
+
+  if [[ -f $1 ]]; then
+    jupyter nbconvert --to notebook --inplace --execute $1
   else
     echo First argument must be file
   fi
