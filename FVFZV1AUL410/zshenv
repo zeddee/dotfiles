@@ -1,0 +1,35 @@
+# Local bin paths
+
+export PATH="$PATH:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/bin"
+export PATH="$PATH:$HOME/.local/bin"
+
+# Export local python bin
+export PATH="$PATH:$HOME/Library/Python/3.6/bin"
+
+# GO
+export GOPATH="$HOME/working/GOPATH"
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:/usr/local/opt/go/libexec/bin" # this is dynamically linked to /usr/local/Cellar/go/<version>
+
+# RVM gem paths
+export PATH="$PATH:$HOME/.rvm/gems/ruby-head/bin"
+export PATH="$PATH:$HOME/.rvm/gems/ruby-head@global/bin"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+# RVM fix for zsh
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+
+# Export local python bin
+export PATH="$PATH:$HOME/Library/Python/3.6/bin"
+export PATH="$PATH:/Users/zeddee/Library/Python/3.7/bin"
+
+export PATH="$PATH:$HOME/.cargo/bin"
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
+

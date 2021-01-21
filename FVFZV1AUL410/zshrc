@@ -54,11 +54,6 @@ ZSH_THEME="ys"
 plugins=(git)
 
 # User configuration
-
-export GOPATH="$HOME/working/GOPATH"
-export PATH="$PATH:$GOPATH/bin:$HOME/.rvm/gems/ruby-head/bin:$HOME/.rvm/gems/ruby-head@global/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.rvm/bin:/usr/local/opt/go/libexec/bin"
-
-export PATH=$PATH:~/bin
 # export EDITOR="subl -w"
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -143,17 +138,12 @@ if [ -f $HOME/.aliases ]; then
     echo Loaded aliases
 fi
 
-# Export local python bin
-export PATH="$PATH:$HOME/Library/Python/3.6/bin"
 
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-# RVM fix for zsh
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
 alias adoc=asciidoctor
 alias adocpdf=asciidoctor-pdf
 
 ssh-add $HOME/.ssh/id_eiq_github
+
+eval "$(direnv hook zsh)"
 
