@@ -1,0 +1,16 @@
+node_modules/
+.direnv/
+.env/
+.venv/
+tmp/
+.BOX/
+.cargo/
+.asdf/
+.Trash/
+.npm/
+.emacs.d*/
+.cache/
+.pyenv/
+.rustup/
+.vscode/
+Library/
