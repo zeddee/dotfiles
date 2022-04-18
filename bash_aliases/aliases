@@ -8,6 +8,9 @@ alias adocpdf=asciidoctor-pdf
 alias py=python3
 alias yt="youtube-dl -f mp4"
 alias uh="unset HISTFILE"
+alias emacs="emacs -nw"
+alias vim="nvim"
+alias tf="terraform"
 
 # Start a hugo server with logs
 alias hl="hugo serve --logFile $(date +%Y-%m-%d-%H%M%S).log --log -D"
