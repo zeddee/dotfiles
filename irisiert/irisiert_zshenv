@@ -1,4 +1,9 @@
+export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/go/libexec/bin"
+export PATH="$PATH:$GOPATH/bin"
+
 export GOPATH="$HOME/working/GOPATH"
+
+export PATH=$PATH:~/bin
 
 # add pyenv
 export PYENV_ROOT=/usr/local/var/pyenv
@@ -10,6 +15,9 @@ export PATH="$PATH:/Users/zeddee/Library/Python/3.7/bin"
 
 export PATH="$PATH:$HOME/.cargo/bin"
 
+# Path for LaTeX
+# export PATH="$PATH:/Library/TeX/Distributions/Programs/texbin"
+
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -17,3 +25,7 @@ export NVM_DIR="$HOME/.nvm"
 
 export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
 
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home
+export JRE_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre
+
+. "$HOME/.cargo/env"
