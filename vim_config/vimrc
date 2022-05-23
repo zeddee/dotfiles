@@ -1,28 +1,3 @@
-" Zed's .vimrc
-" To install: copy or symlink to ~/.vimrc on *nix and $VIM\_vimrc on Windows
-
-" Type \rr to refresh vim env from ~/.vimrc
-map rr :source ~/.vimrc
-
-" Additional syntax things
-syntax enable
-
-" Misc config
-set autoindent
-set smartindent
-set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=4
-set expandtab
-
-set showcmd
-set splitright
-set splitbelow
-set shell=bash
-
-" 
-" --------------------------------------
 " A minimal vimrc for new vim users to start with.
 "
 " Referenced here: http://vimuniversity.com/samples/your-first-vimrc-should-be-nearly-empty
@@ -56,3 +31,30 @@ set number
 
 " Allow hidden buffers, don't limit to 1 file per window/split
 set hidden
+
+
+" Zed's .vimrc
+" To install: copy or symlink to ~/.vimrc on *nix and $VIM\_vimrc on Windows
+" If installing for neovim, symlink this to ~/.config/nvim/init.vim instead
+
+" Type \rr to refresh vim env from ~/.vimrc
+map rr :source ~/.vimrc
+
+" Additional syntax things
+syntax enable
+
+" Misc config
+" ret showmatch
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=4
+set expandtab
+
+" ret showcmd
+set splitright
+set splitbelow
+set shell=bash
+
