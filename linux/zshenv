@@ -1,0 +1,4 @@
+. "$HOME/.cargo/env"
+export PATH=$PATH:$HOME/.local/bin:$HOME/.pyenv/bin
+
+source ~/working/.pritunl

@@ -1,0 +1,14 @@
+Host localhost
+  UserKnownHostsFile /dev/null
+  # Ignore known_hosts for localhost
+
+Host *
+  Port 22
+  PreferredAuthentications=publickey
+  Compression=yes
+  ServerAliveInterval 60
+  ServerAliveCountMax 20
+  LogLevel INFO
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_eiq_github
+  IdentityFile ~/.ssh/id_ed25519

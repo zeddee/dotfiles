@@ -1,0 +1,17 @@
+# This is an alias file
+# Run `ln -s $(pwd)/<thisfile> ~/.aliases
+
+# Append aliases as `alias=<cmd>`
+alias mktmp="cd $(mktemp -d)"
+alias adoc=asciidoctor
+alias adocpdf=asciidoctor-pdf
+alias py=python3
+alias yt="youtube-dl -f mp4"
+alias uh="unset HISTFILE"
+alias emacs="emacs -nw"
+alias vim="nvim"
+alias tf="terraform"
+alias tm="tmux"
+alias ta="tmux attach -t"
+
+alias pc="pritunl-client"
