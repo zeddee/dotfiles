@@ -1,0 +1,12 @@
+[user]
+	email = wtan@eclecticiq.com
+	name = zed tan
+[mergetool "smerge"]
+	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
+[merge]
+	tool = smerge
+[core]
+	excludesFile = /home/zeddee/.gitignore
+[protocol "keybase"]
+	allow = always

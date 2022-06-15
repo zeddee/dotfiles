@@ -1,0 +1,6 @@
+.envrc
+.direnv/
+.venv/
+venv/
+node_modules/
+.orgids

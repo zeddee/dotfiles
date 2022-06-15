@@ -15,3 +15,7 @@ alias tm="tmux"
 alias ta="tmux attach -t"
 
 alias pc="pritunl-client"
+
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
