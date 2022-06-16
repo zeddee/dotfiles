@@ -10,3 +10,5 @@
 	excludesFile = /home/zeddee/.gitignore
 [protocol "keybase"]
 	allow = always
+[pull]
+	rebase = true
