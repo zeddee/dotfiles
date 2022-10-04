@@ -1,13 +1,18 @@
 {
-    "editor.tabSize": 4,
-    "editor.renderWhitespace": "all",
-    "editor.wordWrap": "on",
-    "editor.insertSpaces": true,
-    "editor.detectIndentation": "false",
-    "files.eol": "\n",
+    "editor.tabSize": 2,
+    "editor.renderWhitespace":"all",
+    "editor.insertSpaces":true,
+    "editor.wordWrap":"on",
+    "editor.detectIndentation":false,
+    "window.zoomLevel": 0,
     "sublimeTextKeymap.promptV3Features": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",
     "editor.formatOnPaste": true,
-    "workbench.panel.location": "right"
+    "python.linting.enabledWithoutWorkspace": false,
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.quickSuggestionsDelay": 0,
+    "files.insertFinalNewline": true,
+    "editor.fontSize": 13
 }
+    

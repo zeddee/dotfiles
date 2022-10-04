@@ -9,13 +9,77 @@ alias py=python3
 alias yt="youtube-dl -f mp4"
 alias uh="unset HISTFILE"
 alias emacs="emacs -nw"
+
+if [[ $(command -v nvim) ]]; then
 alias vim="nvim"
+fi
+
 alias tf="terraform"
 alias tm="tmux"
 alias ta="tmux attach -t"
+alias tn="tmux new -s"
 
 alias pc="pritunl-client"
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
+# datenow prints ISO-8601 date time to stdout
+alias datenow="date +%Y-%m-%dT%H:%M:%S%z"
+alias datenowfriendly="date +%Y-%m-%dT%H%M%S"
+
+# takes two inputs and returns a boolean
+# $1: line (str) to find
+# $2: file to iterate through
+# greps $2 to find a string
+# grep -F (--fixed-strings) -x (--line-regexp; matches whole line) -q (--quiet)
+# NOTE: You can't actually return values with bash functions
+# only exit codes. Access the returned function with 'local funccall "arg"; echo $?'
+checkLineExists() {
+    findme=$1
+    filename=$2
+    if [[ $# -eq 0 ]]; then
+        echo Requires 2 args: "string to check for" "filename"
+        return 2 # fails 
+    else
+        if $(cat $2 | grep -Fxq "$1"); then
+            return 0 # string found
+        else
+            return 1 # string not found
+        fi
+    fi
+}
+
+comparestr() {
+  if [[ $# -ne 2 ]]; then
+    echo Compares 2 strings.
+    echo Usage: comparestr "first string" "second string"
+    return
+  else
+    if [[ "$1" == "$2" ]]; then
+      echo strings are equal
+      echo 1. "$1"
+      echo 2. "$2"
+    else
+      echo strings are not equal
+      echo 1. "$1"
+      echo 2. "$2"
+    fi
+  fi
+}
+
+comparehash() {
+  if [[ $# -ne 2 ]]; then
+    echo Compares a file\'s sha256 hash to a given string
+    echo Usage: comparehash "filename" "hash_to_compare_to"
+    return
+  fi
+  # check if 1st arg is file
+  if [[ -f $1 ]]; then
+    hash1=$(sha256sum "$1" | cut -f 1 -d ' ')
+    echo hash1 is "$hash1"
+    comparestr "$hash1" "$2"
+  else
+    echo First argument must be file
+  fi
+}

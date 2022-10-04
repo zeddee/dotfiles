@@ -1,5 +1,5 @@
 [user]
-	email = wtan@eclecticiq.com
+	email = zed@shootbird.work
 	name = zed tan
 [mergetool "smerge"]
 	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
