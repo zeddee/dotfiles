@@ -8,7 +8,17 @@
 	tool = smerge
 [core]
 	excludesFile = /home/zeddee/.gitignore
+	attributesFile = /home/zeddee/.gitattributes
+[init]
+	defaultBranch = main
 [protocol "keybase"]
 	allow = always
 [pull]
 	rebase = true
+
+## Allow gpg-encrypted files to be transparently decrypted for git diff
+# Requires the following to be set in .gitattributes
+# *.gpg filter=gpg diff=gpg
+# *.asc filter=gpg diff=gpg
+[diff "gpg"]
+  textconv = gpg --no-tty -q --decrypt
