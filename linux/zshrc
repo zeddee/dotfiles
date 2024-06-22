@@ -101,7 +101,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 if [[ $(command -v starship) ]]; then
 eval "$(starship init zsh)"
-. $HOME/.asdf/asdf.sh
 fi
 
 echo Load ~/.aliases and ~/.zshenv
