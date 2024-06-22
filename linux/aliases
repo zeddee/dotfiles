@@ -5,28 +5,63 @@
 alias mktmp="cd $(mktemp -d)"
 alias adoc=asciidoctor
 alias adocpdf=asciidoctor-pdf
-alias py=python3
-alias yt="youtube-dl -f mp4"
-alias uh="unset HISTFILE"
-alias emacs="emacs -nw"
+alias python=python3
+# alias yt="yt-dlp -f mp4"
+alias caf="caffeinate -u -d -s"
 
-if [[ $(command -v nvim) ]]; then
-alias vim="nvim"
+if command -v yt-dlp > /dev/null ; then
+  function yt() {
+    yt-dlp "$@" -f mp4 &
+  }
 fi
 
-alias tf="terraform"
-alias tm="tmux"
-alias ta="tmux attach -t"
-alias tn="tmux new -s"
+alias uh="unset HISTFILE"
+alias vim="nvim"
+alias emacs="emacs -nw"
 
-alias pc="pritunl-client"
+# Start a hugo server with logs
+alias hl="hugo serve --logFile $(date +%Y-%m-%d-%H%M%S).log --log -D"
 
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
+# Quick python3 venv init
+# alias pyinit="python3 -m venv env && source env/bin/activate && pip install --upgrade pip setuptools && pip install pylint autopep8 && echo 'env' >> .gitignore"
+alias pyinit=pyinit_func
+
+# Convenient way to output date to ISO 8601 format
+if [ "brew ls --versions coreutils" > /dev/null ]; then
+  alias dateiso="gdate --iso-8601=seconds"
+else
+  echo "Run 'brew install coreutils'"
+fi
+
+# Use create-react-app with typescript
+if [ "create-react-app" > /dev/null ]; then
+  alias create-react-app-ts="create-react-app --scripts-version=react-scripts-ts"
+else
+  echo "Requires create-react-app installed globally"
+fi
+
+# For Headless Chrome(s). Point to chrome binaries in /Applications folder
+# Run with "<binary> --headless --disable-gpu --remote-debugging-port=9222 <url>"
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias chromecan="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
+#alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
+
+# === Sketch dev environment
+# Switch on plugin autoreload
+alias sketch_autoreload_on="defaults write ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript -bool YES && defaults read ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript"
+# Switch off plugin autoreload
+alias sketch_autoreload_off="defaults write ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript -bool NO && defaults read ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript"
 
 # datenow prints ISO-8601 date time to stdout
 alias datenow="date +%Y-%m-%dT%H:%M:%S%z"
+
 alias datenowfriendly="date +%Y-%m-%dT%H%M%S"
+
+# pwd and copy to macos clipboard
+alias curdir="pwd | pbcopy"
+
+# init direnv for python 3.9.2
+alias direnv-init="echo 'layout pyenv 3.9.2' >> .envrc && echo 'init .envrc for python 3.9.2'"
 
 # takes two inputs and returns a boolean
 # $1: line (str) to find
@@ -83,3 +118,16 @@ comparehash() {
     echo First argument must be file
   fi
 }
+
+runnotebook() {
+  if ! command -v jupyter; then
+    echo Requires jupyter. Install with pip.
+  fi
+
+  if [[ -f $1 ]]; then
+    jupyter nbconvert --to notebook --inplace --execute $1
+  else
+    echo First argument must be file
+  fi
+}
+
